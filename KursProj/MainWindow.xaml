@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:KursProj"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Background="AntiqueWhite">
+
+        <TextBlock Text="Главная странца"/>
     </Grid>
 </Window>
