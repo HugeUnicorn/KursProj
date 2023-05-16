@@ -28,7 +28,7 @@ namespace KursProj.Views
 
         private void BtnSighIn_Click(object sender, RoutedEventArgs e)
         {
-            try 
+            try
             {
                 var CurrentUser = AppData.db.User.FirstOrDefault(u => u.login == TBLogin.Text && u.password == TBPassword.Text);
 
@@ -46,12 +46,14 @@ namespace KursProj.Views
                         default:MessageBox.Show("Ошибка");
                             break;
                     }
+                    NavigationService.Navigate(new DataPage());
                 }
-            } catch (Exception ex) 
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Ошибка " + ex.Message.ToString());
             }
-            
+
         }
     }
 }
