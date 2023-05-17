@@ -55,5 +55,10 @@ namespace KursProj.Views
             }
 
         }
+
+        private void BtnSignUp_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new SignUpPage());
+        }
     }
 }
