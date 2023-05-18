@@ -27,6 +27,7 @@
                     Width="200">
             <TextBlock Text="Имя" Margin="3"/>
             <TextBox Name="TBName" Margin="3"/>
+            
             <TextBlock Text="Фамилия" Margin="3"/>
             <TextBox Name="TBSurname" Margin="3"/>
             <TextBlock Text="Отчество" Margin="3"/>
@@ -34,7 +35,12 @@
             <TextBlock Text="Год рождения" Margin="3"/>
             <TextBox Name="TByob" Margin="3"/>
             <TextBlock Text="Логин" Margin="3"/>
-            <TextBox Name="TBLogin" Margin="3"/>
+            <TextBox Name="TBLogin" Margin="3" TextChanged="TBLogin_TextChanged"/>
+            <TextBlock   Name="TBLoginError"
+                         Visibility="Collapsed"
+                         Foreground="red"
+                         FontSize="12"
+                         Text="Пользователь с таким логином уже существует"/>
             <TextBlock Text="Пароль" Margin="3"/>
             <PasswordBox Name="PBPass" 
                          Margin="5"

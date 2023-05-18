@@ -26,15 +26,16 @@ namespace KursProj.Views
             InitializeComponent();
         }
 
-        private void BtnSighIn_Click(object sender, RoutedEventArgs e)
+        private void BtnSignIn_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                var CurrentUser = AppData.db.User.FirstOrDefault(u => u.login == TBLogin.Text && u.password == TBPassword.Text);
+                var CurrentUser = AppData.db.User.Where((u) => u.login == TBLogin.Text && u.password == TBPassword.Text).Single();
 
                 if (CurrentUser == null)
                 {
                     MessageBox.Show("Такого пользователя нет!", "Ошибка авторизации");
+
                 } else
                 {
                     switch (CurrentUser.roleID)
@@ -46,8 +47,18 @@ namespace KursProj.Views
                         default:MessageBox.Show("Ошибка");
                             break;
                     }
-                    NavigationService.Navigate(new DataPage());
+
+                    if (CurrentUser.login.Equals(TBLogin.Text) && CurrentUser.password.Equals(TBPassword.Text))
+                    {
+                        NavigationService.Navigate(new DataPage());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Введите корректные логин и пароль");
+                    }                
                 }
+
+
             }
             catch (Exception ex)
             {

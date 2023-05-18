@@ -78,5 +78,17 @@ namespace KursProj.Views
                 PBPassAgain.Foreground = Brushes.Green;
             }
         }
+
+        private void TBLogin_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (AppData.db.User.Count(x => x.login == TBLogin.Text) > 0)
+            {
+                TBLoginError.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                TBLoginError.Visibility = Visibility.Hidden;
+            }
+        }
     }
 }
