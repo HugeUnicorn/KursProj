@@ -4,6 +4,44 @@
              xmlns:local="clr-namespace:KursProj"
              StartupUri="Views/AuthWindow.xaml">
     <Application.Resources>
-         
+        <SolidColorBrush x:Key="ColorAccent" Color="#f0aa4d"/>
+        <SolidColorBrush x:Key="ColorPrimary" Color="AntiqueWhite"/>
+        <SolidColorBrush x:Key="ColorNotWhite" Color="#fff0e1"/>
+        <SolidColorBrush x:Key="ColorFont" Color="#4c371f"/>
+        <SolidColorBrush x:Key="AnotherColor" Color="tan"/>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="Width" Value="165"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Foreground" Value="{StaticResource ColorFont}"/>
+            <Setter Property="Background" Value="{StaticResource ColorAccent}"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="{StaticResource AnotherColor}"/>
+                    <Setter Property="Background" Value="{StaticResource ColorNotWhite}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="{StaticResource ColorFont}"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="{StaticResource AnotherColor}"/>
+                    <Setter Property="Background" Value="{StaticResource ColorNotWhite}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="275"/>
+            <Setter Property="Background" Value="{StaticResource ColorNotWhite}"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="BorderBrush" Value="{StaticResource ColorFont}"/>
+        </Style>
+        
     </Application.Resources>
 </Application>

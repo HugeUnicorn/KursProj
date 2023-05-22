@@ -11,23 +11,20 @@
     <Grid Background="AntiqueWhite">
 
         <StackPanel VerticalAlignment="Center"
-                    Width="200"
+                    
                     HorizontalAlignment="Center">
             
-            <TextBlock Text="Логин" FontSize="16"/>
-            <TextBox Name="TBLogin"  />
-            <TextBlock Text="Пароль" FontSize="16"/>
+            <TextBlock Text="Логин" />
+            <TextBox Name="TBLogin"/>
+            <TextBlock Text="Пароль"/>
             <TextBox Name="TBPassword"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Click="BtnSignIn_Click"
+                        Content="Войти"/>
 
-            <Button Height="20"
-                    Margin="7"
-                    Click="BtnSignIn_Click"
-                    Content="Войти"/>
-
-            <Button Height="20"
-                    Margin="7"
-                    Click="BtnSignUp_Click"
-                    Content="Зарегестрироваться"/>
+                <Button Click="BtnSignUp_Click"
+                        Content="Зарегестрироваться"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
