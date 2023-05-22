@@ -20,11 +20,73 @@
                 Click="BtnBack_Click"/>
         
         <StackPanel Grid.Row="1"
-                    VerticalAlignment="Top"
+                    VerticalAlignment="Center"
                     HorizontalAlignment="Center"
-                    Width="400">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Имя"  Margin="3" Width="200"/>
+                    Width="600">
+            <Grid VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Имя" Margin="3" Grid.Column="0" Grid.Row="0" />
+                <TextBox Name="TBName" Margin="3" Grid.Column="1" Grid.Row="0"/>
+                <TextBlock Text="Фамилия" Margin="3" Grid.Column="0" Grid.Row="1"/>
+                <TextBox Name="TBSurname" Margin="3" Grid.Column="1" Grid.Row="1"/>
+
+                <TextBlock Text="Отчество" Margin="3" Grid.Column="0" Grid.Row="2"/>
+                <TextBox Name="TBPatronymic" Margin="3" Grid.Column="1" Grid.Row="2"/>
+                <TextBlock Text="Год рождения" Margin="3" Grid.Column="0" Grid.Row="3"/>
+                <TextBox Name="TByob" Margin="3" Grid.Column="1" Grid.Row="3"/>
+                <TextBlock Text="Логин" Margin="3" Grid.Column="0" Grid.Row="4"/>
+                <TextBox Name="TBLogin" Margin="3" TextChanged="TBLogin_TextChanged" Grid.Column="1" Grid.Row="4"/>
+                <TextBlock Grid.Column="0" Grid.Row="4"
+                           Name="TBLoginError"
+                           Visibility="Collapsed"
+                           Foreground="red"
+                           FontSize="12"
+                           Text="Пользователь с таким логином уже существует"/>
+                <TextBlock Text="Пароль" Margin="3" Grid.Column="0" Grid.Row="5"/>
+                <PasswordBox Grid.Column="1" Grid.Row="5"
+                            Name="PBPass" 
+                            Margin="5"
+                            PasswordChanged="PBPass_Changed"/>
+                <TextBlock Text="Введите пароль второй раз" Margin="3" Grid.Column="0" Grid.Row="6"/>
+                <PasswordBox Grid.Column="1" Grid.Row="6"
+                            Name="PBPassAgain" 
+                            Margin="5"
+                            PasswordChanged="PBPass_Changed"/>
+
+                <Button Grid.ColumnSpan="2"
+                    Grid.Row="7"
+                    Name="BtnReg"
+                    IsEnabled="False"                   
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Click="BtnReg_Click"
+                    Content="Зарегистрироваться"/>
+
+                <TextBlock Grid.ColumnSpan="2"
+                       Grid.Row="8"
+                       Text="Уже есть аккаунт?"
+                       HorizontalAlignment="Center"
+                       Foreground="Gray"
+                       FontSize="10"
+                       MouseLeftButtonUp="BtnBack_Click"/>
+            </Grid>
+            
+            <!--<StackPanel Orientation="Horizontal">
+                <TextBlock Text="Имя"  Margin="3" />
                 <TextBox Name="TBName" Margin="3" Width="200"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -66,7 +128,7 @@
                        HorizontalAlignment="Center"
                        Foreground="LightGray"
                        FontSize="10"
-                       MouseLeftButtonUp="BtnBack_Click"/>
+                       MouseLeftButtonUp="BtnBack_Click"/>-->
         </StackPanel>
     </Grid>
 </Page>
