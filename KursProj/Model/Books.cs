@@ -14,12 +14,6 @@ namespace KursProj.Model
     
     public partial class Books
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Books()
-        {
-            this.UserBookPair = new HashSet<UserBookPair>();
-        }
-    
         public int id { get; set; }
         public string article { get; set; }
         public string name { get; set; }
@@ -34,7 +28,6 @@ namespace KursProj.Model
         public virtual Genres Genres { get; set; }
         public virtual PublishingHouse PublishingHouse { get; set; }
         public virtual State State { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserBookPair> UserBookPair { get; set; }
+        public virtual UserBookPair UserBookPair { get; set; }
     }
 }

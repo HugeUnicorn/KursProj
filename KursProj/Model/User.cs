@@ -24,10 +24,11 @@ namespace KursProj.Model
         public string name { get; set; }
         public string surname { get; set; }
         public string patronymic { get; set; }
-        public Nullable<int> yearOfBirth { get; set; }
+        public string email { get; set; }
         public string login { get; set; }
         public string password { get; set; }
         public int roleID { get; set; }
+        public string image { get; set; }
     
         public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

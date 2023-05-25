@@ -12,7 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Text.RegularExpressions;
+using Microsoft.Win32;
+using System.IO;
 
 namespace KursProj.Views
 {
@@ -21,6 +23,11 @@ namespace KursProj.Views
     /// </summary>
     public partial class SignUpPage : Page
     {
+        private byte[] _mainImageData = null;
+        public string img = null;
+        public string path = Path.Combine(Directory.GetParent(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName)).FullName, @"Images\");
+        public string selectefFileName;
+        public string extension = "";
         public SignUpPage()
         {
             InitializeComponent();
@@ -39,19 +46,34 @@ namespace KursProj.Views
             }
             try
             {
+                if (img != null)
+                {
+                    img = TBLogin.Text + extension;
+                    var files = Directory.GetFiles(path);
+                    int a = 0;
+                    while (File.Exists(path + img))
+                    {
+                        a++;
+                        img = TBLogin.Text + $" ({a})" + extension;
+                    }
+                    path += img;
+                    File.Copy(selectefFileName, path);
+                }
                 User user = new User();
                 { 
                     user.name = TBName.Text;
                     user.surname = TBSurname.Text;
                     user.patronymic = TBPatronymic.Text;
-                    user.yearOfBirth = Int32.Parse(TByob.Text);
+                    user.email = TBemail.Text;
                     user.login = TBLogin.Text;
                     user.password = PBPass.Password;
+                    user.image = img;
                     user.roleID = 2; //default user role //not admin
                 };
                 AppData.db.User.Add(user);
                 AppData.db.SaveChanges();
                 MessageBox.Show("Пользователь успешно добавлен!");
+                NavigationService.GoBack();
             }
             catch 
             {
@@ -69,6 +91,15 @@ namespace KursProj.Views
                 PBPassAgain.Background = Brushes.LightCoral;
                 PBPassAgain.Foreground = Brushes.Red;
             }
+            else if (String.IsNullOrEmpty(PBPass.Password.ToString()) || String.IsNullOrEmpty(PBPassAgain.Password.ToString()))
+            {
+                BtnReg.IsEnabled = false;
+                PBPass.Background = default;
+                PBPass.Foreground = default;
+                PBPassAgain.Background = default;
+                PBPassAgain.Foreground = default;
+                TBPassStrength.Visibility = Visibility.Collapsed;
+            }
             else
             {
                 BtnReg.IsEnabled = true;
@@ -76,6 +107,22 @@ namespace KursProj.Views
                 PBPass.Foreground = Brushes.Green;
                 PBPassAgain.Background = Brushes.LightGreen;
                 PBPassAgain.Foreground = Brushes.Green;
+            }
+            
+            string password = PBPass.Password.ToString();
+            Regex strongPass = new Regex(@"(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}");
+            MatchCollection strongMatch = strongPass.Matches(password);
+            if (strongMatch.Count > 0)
+            {
+                TBPassStrength.Text = "Ничо такой пароль, хороший";
+                TBPassStrength.Foreground = Brushes.DarkRed;
+                TBPassStrength.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                TBPassStrength.Text = "хз, слабый пароль какой-то";
+                TBPassStrength.Foreground = Brushes.Green;
+                TBPassStrength.Visibility = Visibility.Visible;
             }
         }
 
@@ -87,7 +134,22 @@ namespace KursProj.Views
             }
             else
             {
-                TBLoginError.Visibility = Visibility.Hidden;
+                TBLoginError.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void BtnSelectImage_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Multiselect = false;
+            ofd.Filter = "Фото | *.png; *.jpg; *.jpeg";
+            if (ofd.ShowDialog() == true)
+            {
+                extension = Path.GetExtension(img);
+                selectefFileName = ofd.FileName;
+                _mainImageData = File.ReadAllBytes(ofd.FileName);
+                ImagePFP.Source = new ImageSourceConverter()
+                    .ConvertFrom(_mainImageData) as ImageSource;
             }
         }
     }

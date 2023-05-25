@@ -16,8 +16,7 @@
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
 
-        <Button Height="20" 
-                Width="100"
+        <Button 
                 HorizontalAlignment="left"
                 Margin="7"
                 Content="Назад"

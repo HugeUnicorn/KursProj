@@ -5,8 +5,9 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:KursProj.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="SignUpPage" Background="AntiqueWhite">
+      d:DesignHeight="550" d:DesignWidth="800"
+      Title="SignUpPage" Background="AntiqueWhite"
+      xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -22,10 +23,12 @@
         <StackPanel Grid.Row="1"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
-                    Width="600">
+                    Width="750"
+                    >
             <Grid VerticalAlignment="Center">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -38,37 +41,51 @@
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
-                <TextBlock Text="Имя" Margin="3" Grid.Column="0" Grid.Row="0" />
-                <TextBox Name="TBName" Margin="3" Grid.Column="1" Grid.Row="0"/>
-                <TextBlock Text="Фамилия" Margin="3" Grid.Column="0" Grid.Row="1"/>
-                <TextBox Name="TBSurname" Margin="3" Grid.Column="1" Grid.Row="1"/>
+                <TextBlock Text="Имя"  Grid.Column="0" Grid.Row="0" />
+                <TextBox Name="TBName"  Grid.Column="1" Grid.Row="0"/>
+                <TextBlock Text="Фамилия"  Grid.Column="0" Grid.Row="1"/>
+                <TextBox Name="TBSurname"  Grid.Column="1" Grid.Row="1"/>
 
-                <TextBlock Text="Отчество" Margin="3" Grid.Column="0" Grid.Row="2"/>
-                <TextBox Name="TBPatronymic" Margin="3" Grid.Column="1" Grid.Row="2"/>
-                <TextBlock Text="Год рождения" Margin="3" Grid.Column="0" Grid.Row="3"/>
-                <TextBox Name="TByob" Margin="3" Grid.Column="1" Grid.Row="3"/>
-                <TextBlock Text="Логин" Margin="3" Grid.Column="0" Grid.Row="4"/>
-                <TextBox Name="TBLogin" Margin="3" TextChanged="TBLogin_TextChanged" Grid.Column="1" Grid.Row="4"/>
-                <TextBlock Grid.Column="0" Grid.Row="4"
+                <TextBlock Text="Отчество"   Grid.Column="0" Grid.Row="2"/>
+                <TextBox Name="TBPatronymic"   Grid.Column="1" Grid.Row="2"/>
+                <TextBlock Text="Почта"   Grid.Column="0" Grid.Row="3"/>
+                <TextBox
+                    Name="TBemail" 
+                         
+                         Grid.Column="1" 
+                         Grid.Row="3"
+                         
+                         />
+                
+                <TextBlock Text="Логин"  Grid.Column="0" Grid.Row="4"/>
+                <TextBox Name="TBLogin"  TextChanged="TBLogin_TextChanged" Grid.Column="1" Grid.Row="4"/>
+                <TextBlock Grid.ColumnSpan="2" Grid.Row="5"
                            Name="TBLoginError"
                            Visibility="Collapsed"
                            Foreground="red"
                            FontSize="12"
                            Text="Пользователь с таким логином уже существует"/>
-                <TextBlock Text="Пароль" Margin="3" Grid.Column="0" Grid.Row="5"/>
-                <PasswordBox Grid.Column="1" Grid.Row="5"
+                <TextBlock Text="Пароль"  Grid.Column="0" Grid.Row="6"/>
+                <PasswordBox Grid.Column="1" Grid.Row="6"
                             Name="PBPass" 
                             Margin="5"
                             PasswordChanged="PBPass_Changed"/>
-                <TextBlock Text="Введите пароль второй раз" Margin="3" Grid.Column="0" Grid.Row="6"/>
-                <PasswordBox Grid.Column="1" Grid.Row="6"
+                <TextBlock Grid.ColumnSpan="2" Grid.Row="7"
+                           Name="TBPassStrength"
+                           Visibility="Collapsed"
+                           Foreground="Yellow"
+                           Text="Пароль"
+                           FontSize="12"/>
+                <TextBlock Text="Введите пароль второй раз"   Grid.Column="0" Grid.Row="8"/>
+                <PasswordBox Grid.Column="1" Grid.Row="8"
                             Name="PBPassAgain" 
                             Margin="5"
                             PasswordChanged="PBPass_Changed"/>
-
-                <Button Grid.ColumnSpan="2"
-                    Grid.Row="7"
+                <Button Grid.ColumnSpan="3"
+                    Grid.Row="9"
                     Name="BtnReg"
                     IsEnabled="False"                   
                     HorizontalAlignment="Center"
@@ -76,41 +93,47 @@
                     Click="BtnReg_Click"
                     Content="Зарегистрироваться"/>
 
-                <TextBlock Grid.ColumnSpan="2"
-                       Grid.Row="8"
+                <TextBlock Grid.ColumnSpan="3"
+                       Grid.Row="10"
                        Text="Уже есть аккаунт?"
                        HorizontalAlignment="Center"
                        Foreground="Gray"
                        FontSize="10"
                        MouseLeftButtonUp="BtnBack_Click"/>
+                <StackPanel Grid.Column="2" Grid.RowSpan="9" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Border Margin="5" Width="240" Height="240" BorderBrush="{StaticResource ColorAccent}">
+                        <Image Name="ImagePFP" Source="/Images/default_pfp.png"/>
+                    </Border>
+                    <Button Name="BtnSelectImage" Click="BtnSelectImage_Click"/>
+                </StackPanel>
             </Grid>
             
             <!--<StackPanel Orientation="Horizontal">
-                <TextBlock Text="Имя"  Margin="3" />
-                <TextBox Name="TBName" Margin="3" Width="200"/>
+                <TextBlock Text="Имя"    />
+                <TextBox Name="TBName"   Width="200"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Фамилия" Margin="3"/>
-                <TextBox Name="TBSurname" Margin="3"/>
+                <TextBlock Text="Фамилия"  />
+                <TextBox Name="TBSurname"  />
             </StackPanel>
             
             
-            <TextBlock Text="Отчество" Margin="3"/>
-            <TextBox Name="TBPatronymic" Margin="3"/>
-            <TextBlock Text="Год рождения" Margin="3"/>
-            <TextBox Name="TByob" Margin="3"/>
-            <TextBlock Text="Логин" Margin="3"/>
-            <TextBox Name="TBLogin" Margin="3" TextChanged="TBLogin_TextChanged"/>
+            <TextBlock Text="Отчество"  />
+            <TextBox Name="TBPatronymic"  />
+            <TextBlock Text="Год рождения"  />
+            <TextBox Name="TByob"  />
+            <TextBlock Text="Логин"  />
+            <TextBox Name="TBLogin"   TextChanged="TBLogin_TextChanged"/>
             <TextBlock   Name="TBLoginError"
                          Visibility="Collapsed"
                          Foreground="red"
                          FontSize="12"
                          Text="Пользователь с таким логином уже существует"/>
-            <TextBlock Text="Пароль" Margin="3"/>
+            <TextBlock Text="Пароль"  />
             <PasswordBox Name="PBPass" 
                          Margin="5"
                          PasswordChanged="PBPass_Changed"/>
-            <TextBlock Text="Введите пароль второй раз" Margin="3"/>
+            <TextBlock Text="Введите пароль второй раз"  />
             <PasswordBox Name="PBPassAgain" 
                          Margin="5"
                          PasswordChanged="PBPass_Changed"/>
