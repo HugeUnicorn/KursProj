@@ -49,7 +49,6 @@ namespace KursProj.Views
                 if (img != null)
                 {
                     img = TBLogin.Text + extension;
-                    var files = Directory.GetFiles(path);
                     int a = 0;
                     while (File.Exists(path + img))
                     {
@@ -74,15 +73,31 @@ namespace KursProj.Views
                 AppData.db.SaveChanges();
                 MessageBox.Show("Пользователь успешно добавлен!");
                 NavigationService.GoBack();
-            }
+        }
             catch 
             {
                 MessageBox.Show("Ошибка в добавлении данных!");
             }
-        }
+}
 
         private void PBPass_Changed(object sender, RoutedEventArgs e)
         {
+            string password = PBPass.Password.ToString();
+            Regex strongPass = new Regex(@"(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}");
+            MatchCollection strongMatch = strongPass.Matches(password);
+            if (strongMatch.Count > 0)
+            {
+                TBPassStrength.Text = "Ничо такой пароль, хороший";
+                TBPassStrength.Foreground = Brushes.DarkRed;
+                TBPassStrength.Visibility = Visibility.Visible;
+            }            
+            else
+            {
+                TBPassStrength.Text = "хз, слабый пароль какой-то";
+                TBPassStrength.Foreground = Brushes.Green;
+                TBPassStrength.Visibility = Visibility.Visible;
+            }
+
             if (PBPass.Password != PBPassAgain.Password)
             {
                 BtnReg.IsEnabled = false;
@@ -108,22 +123,6 @@ namespace KursProj.Views
                 PBPassAgain.Background = Brushes.LightGreen;
                 PBPassAgain.Foreground = Brushes.Green;
             }
-            
-            string password = PBPass.Password.ToString();
-            Regex strongPass = new Regex(@"(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}");
-            MatchCollection strongMatch = strongPass.Matches(password);
-            if (strongMatch.Count > 0)
-            {
-                TBPassStrength.Text = "Ничо такой пароль, хороший";
-                TBPassStrength.Foreground = Brushes.DarkRed;
-                TBPassStrength.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                TBPassStrength.Text = "хз, слабый пароль какой-то";
-                TBPassStrength.Foreground = Brushes.Green;
-                TBPassStrength.Visibility = Visibility.Visible;
-            }
         }
 
         private void TBLogin_TextChanged(object sender, TextChangedEventArgs e)
@@ -145,6 +144,7 @@ namespace KursProj.Views
             ofd.Filter = "Фото | *.png; *.jpg; *.jpeg";
             if (ofd.ShowDialog() == true)
             {
+                img = Path.GetFileName(ofd.FileName);
                 extension = Path.GetExtension(img);
                 selectefFileName = ofd.FileName;
                 _mainImageData = File.ReadAllBytes(ofd.FileName);
