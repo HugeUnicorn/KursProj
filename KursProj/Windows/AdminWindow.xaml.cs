@@ -1,6 +1,8 @@
-﻿using System;
+﻿using KursProj.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,6 +24,26 @@ namespace KursProj.Windows
         public AdminWindow()
         {
             InitializeComponent();
+            
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            if (SelectTable.SelectedIndex == 0)
+            {
+                var authors = AppData.db.Authors.ToList();
+                MainFrame.Navigate(new Views.SignInPage());
+            }
+            else if (SelectTable.SelectedIndex == 1)
+            {
+                MainFrame.Navigate(new Views.SignUpPage());
+            }
+        }
+
+        private void DtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

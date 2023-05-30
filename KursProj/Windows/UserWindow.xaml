@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="UserWindow" Height="450" Width="800">
     <Grid>
-        
+        <TextBlock Grid.Row="0" Text="Пользователь"/>
+        <Frame NavigationUIVisibility="Hidden" Name="UserFrame"/>
     </Grid>
 </Window>

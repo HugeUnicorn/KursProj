@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KursProj.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,8 +22,9 @@ namespace KursProj.Views
     public partial class AdminMainPage : Page
     {
         public AdminMainPage()
-        {
+        {         
             InitializeComponent();
+
         }
     }
 }

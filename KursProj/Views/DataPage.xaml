@@ -21,18 +21,30 @@
                 Margin="7"
                 Content="Назад"
                 Click="BtnBack_Click"/>
-        <DataGrid Grid.Row="1"
+        <!--<DataGrid Grid.Row="1"
                   AutoGenerateColumns="False"
                   Name="BooksGrid">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="№" Width="auto" Binding="{Binding ID}"/>
+                --><!--<DataGridTextColumn Header="№" Width="auto" Binding="{Binding id}"/>--><!--
                 <DataGridTextColumn Header="Название книги" Width="*" Binding="{Binding name}"/>
                 <DataGridTextColumn Header="Автор" Width="*" Binding="{Binding Authors.authorFIO}"/>
                 <DataGridTextColumn Header="Жанр" Width="*" Binding="{Binding Genres.genreName}"/>
-                <DataGridTextColumn Header="Издатель" Width="*" Binding="{Binding PublishingHouse.publishingName}"/>
+                <DataGridTextColumn Header="Издатель" Width="*" Binding="{Binding PublishingHouse.publichingName}"/>
                 <DataGridTextColumn Header="Состояние книги" Width="*" Binding="{Binding State.stateName}"/>
                 <DataGridTextColumn Header="Описание" Width="*" Binding="{Binding description}"/>
             </DataGrid.Columns>
-        </DataGrid>
+        </DataGrid>-->
+        
+        <ListView Grid.Row="1"
+                  Name="UserLV">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
     </Grid>
 </Page>

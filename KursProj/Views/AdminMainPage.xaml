@@ -19,20 +19,24 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="85"/>
         </Grid.ColumnDefinitions>
-        <Ellipse Name="profilePicture" MouseLeftButtonDown="Ellipse_MouseLeftButtonDown" Width="70" Height="70" StrokeThickness="1" 
+        <Ellipse Name="profilePicture"  Width="70" Height="70" StrokeThickness="1" 
                  Stroke="{StaticResource ColorAccent}" HorizontalAlignment="Left" Margin="15 0 0 0">
             <Ellipse.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Профиль" Click="profileBtn_Click"/>
+                    <!--<MenuItem Header="Профиль" Click="profileBtn_Click"/>
                     <MenuItem Header="История входа" Click="historyBtn_Click"/>
-                    <MenuItem Header="Выход" Foreground="#FFC83232" Click="exitBtn_Click"/>
+                    <MenuItem Header="Выход" Foreground="#FFC83232" Click="exitBtn_Click"/>-->
                 </ContextMenu>
             </Ellipse.ContextMenu>
             <Ellipse.Fill>
                 <ImageBrush ImageSource="/Images/default_pfp.png" Stretch="UniformToFill"/>
             </Ellipse.Fill>
         </Ellipse>
-        <Ellipse Name="iconPicture" MouseLeftButtonDown="Icon_MouseLeftButtonDown" Height="70" StrokeThickness="1" Grid.Column="2" Width="70" HorizontalAlignment="Right" Margin="0 0 15 0">
+        <ComboBox Grid.Column="1">
+            <ComboBoxItem Content="Авторы"/>
+            <ComboBoxItem Content="Книги"/>
+        </ComboBox>
+        <Ellipse Name="iconPicture" Height="70" StrokeThickness="1" Grid.Column="2" Width="70" HorizontalAlignment="Right" Margin="0 0 15 0">
             <Ellipse.Fill>
                 <ImageBrush ImageSource="/Images/default_pfp.png"></ImageBrush>
             </Ellipse.Fill>

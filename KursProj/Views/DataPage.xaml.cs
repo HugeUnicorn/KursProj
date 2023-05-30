@@ -33,7 +33,7 @@ namespace KursProj.Views
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            BooksGrid.ItemsSource = AppData.db.Books.ToList();
+            //BooksGrid.ItemsSource = AppData.db.Books.ToList();
         }
     }
 }
