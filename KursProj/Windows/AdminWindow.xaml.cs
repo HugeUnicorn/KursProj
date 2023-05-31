@@ -21,24 +21,27 @@ namespace KursProj.Windows
     /// </summary>
     public partial class AdminWindow : Window
     {
+        public int currentTable = 0;
         public AdminWindow()
         {
-            InitializeComponent();
-            
+            InitializeComponent();    
+            SelectTable.SelectedIndex = 0;
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-            if (SelectTable.SelectedIndex == 0)
+            currentTable = SelectTable.SelectedIndex;
+            switch (SelectTable.SelectedIndex)
             {
-                var authors = AppData.db.Authors.ToList();
-                MainFrame.Navigate(new Views.SignInPage());
-            }
-            else if (SelectTable.SelectedIndex == 1)
-            {
-                MainFrame.Navigate(new Views.SignUpPage());
-            }
+                case 0:
+                    MainFrame.Navigate(new Views.AuthorsPage());
+                    break;
+                    case 1:
+                    MainFrame.Navigate(new Views.SignInPage());
+                    break;
+                default:
+                    break;
+            } 
         }
 
         private void DtnAdd_Click(object sender, RoutedEventArgs e)

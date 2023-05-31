@@ -100,6 +100,9 @@
     <Compile Include="Model\State.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\sysdiagrams.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\User.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -110,6 +113,9 @@
       <DependentUpon>AdminMainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AppFrame.cs" />
+    <Compile Include="Views\AuthorsPage.xaml.cs">
+      <DependentUpon>AuthorsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
@@ -141,6 +147,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\AdminMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AuthorsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

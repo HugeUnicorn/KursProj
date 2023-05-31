@@ -31,6 +31,7 @@ namespace KursProj.Model
         public virtual DbSet<PublishingHouse> PublishingHouse { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<State> State { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserBookPair> UserBookPair { get; set; }
     }

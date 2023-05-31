@@ -2,7 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:KursProj"
-             StartupUri="Windows/AuthWindow.xaml">
+             StartupUri="Windows/AdminWindow.xaml">
+    <!--StartupUri="Windows/AuthWindow.xaml"-->
     <Application.Resources>
         <SolidColorBrush x:Key="ColorAccent" Color="#f2c08e"/>
         <SolidColorBrush x:Key="ColorPrimary" Color="AntiqueWhite"/>
@@ -68,16 +69,16 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <!--<Style TargetType="{x:Type ComboBox}">
+        <Style TargetType="{x:Type ComboBox}">
             <Setter Property="Margin" Value="5"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
-            <Setter Property="Height" Value="30"/>
+            <Setter Property="Height" Value="40"/>
             <Setter Property="Width" Value="Auto"/>
             <Setter Property="Background" Value="{StaticResource AnotherColor}"/>
-            <Setter Property="Foreground" Value="{StaticResource ColorPrimary}"/>
+            <Setter Property="Foreground" Value="cyan"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ComboBox">
@@ -112,7 +113,7 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-        </Style>-->
+        </Style>
         <Style TargetType="ComboBoxItem">
             <Setter Property="Background" Value="{StaticResource ColorPrimary}"/>
             <Setter Property="Foreground" Value="{StaticResource ColorPrimary}"/>
