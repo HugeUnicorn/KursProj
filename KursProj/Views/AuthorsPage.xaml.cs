@@ -20,12 +20,12 @@ namespace KursProj.Views
     /// Логика взаимодействия для AuthorsPage.xaml
     /// </summary>
     public partial class AuthorsPage : Page
-    {
+    {      
         public AuthorsPage()
         {
             InitializeComponent();
             Update();
-        }
+        }       
         public void Update()
         {
             var content = AppData.db.Authors.ToList();
@@ -34,7 +34,9 @@ namespace KursProj.Views
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            var button = (Button)sender;
+            var currentAuthor = button.DataContext as Authors;
+            NavigationService.Navigate(new AddEditAuthorsPage(currentAuthor));
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)

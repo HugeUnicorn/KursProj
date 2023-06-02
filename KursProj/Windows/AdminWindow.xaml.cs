@@ -1,4 +1,5 @@
 ﻿using KursProj.Model;
+using KursProj.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace KursProj.Windows
@@ -46,7 +48,21 @@ namespace KursProj.Windows
 
         private void DtnAdd_Click(object sender, RoutedEventArgs e)
         {
+            switch (currentTable)
+            {
+                case 0:
+                    MainFrame.Navigate(new Views.AddEditAuthorsPage());
+                    break;
+                default:
+                    break;
+            }
+        }
 
+        private void GoBackImage_Click(object sender, MouseEventArgs e)
+        {
+            if (MainFrame.CanGoBack && MessageBox.Show("Вы уверены, что хотите вернуться?",
+                "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Exclamation) == MessageBoxResult.Yes)
+                MainFrame.GoBack();
         }
     }
 }
