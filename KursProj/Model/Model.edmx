@@ -27,34 +27,35 @@
           <Property Name="genreID" Type="int" Nullable="false" />
           <Property Name="publishID" Type="int" Nullable="false" />
           <Property Name="stateID" Type="int" Nullable="false" />
+          <Property Name="image" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Genres">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="genreName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="PublishingHouse">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="publichingName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="roleName" Type="nvarchar(max)" />
+          <Property Name="name" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="State">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="stateName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -87,6 +88,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="bookID" Type="int" Nullable="false" />
           <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="time" Type="datetime" Nullable="false" />
         </EntityType>
         <Association Name="FK_Books_Authors">
           <End Role="Authors" Type="Self.Authors" Multiplicity="1">
@@ -247,6 +249,7 @@
           <Property Name="genreID" Type="Int32" Nullable="false" />
           <Property Name="publishID" Type="Int32" Nullable="false" />
           <Property Name="stateID" Type="Int32" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Authors" Relationship="Self.FK_Books_Authors" FromRole="Books" ToRole="Authors" />
           <NavigationProperty Name="Genres" Relationship="Self.FK_Books_Genres" FromRole="Books" ToRole="Genres" />
           <NavigationProperty Name="PublishingHouse" Relationship="Self.FK_Books_PublishingHouse" FromRole="Books" ToRole="PublishingHouse" />
@@ -258,7 +261,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="genreName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Books" Relationship="Self.FK_Books_Genres" FromRole="Genres" ToRole="Books" />
         </EntityType>
         <EntityType Name="PublishingHouse">
@@ -266,7 +269,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="publichingName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Books" Relationship="Self.FK_Books_PublishingHouse" FromRole="PublishingHouse" ToRole="Books" />
         </EntityType>
         <EntityType Name="Role">
@@ -274,7 +277,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="roleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
         </EntityType>
         <EntityType Name="State">
@@ -282,7 +285,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="stateName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Books" Relationship="Self.FK_Books_State" FromRole="State" ToRole="Books" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -318,6 +321,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="bookID" Type="Int32" Nullable="false" />
           <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Books" Relationship="Self.FK_UserBookPair_Books" FromRole="UserBookPair" ToRole="Books" />
           <NavigationProperty Name="User" Relationship="Self.FK_UserBookPair_User" FromRole="UserBookPair" ToRole="User" />
         </EntityType>
@@ -480,6 +484,7 @@
                 <ScalarProperty Name="genreID" ColumnName="genreID" />
                 <ScalarProperty Name="publishID" ColumnName="publishID" />
                 <ScalarProperty Name="stateID" ColumnName="stateID" />
+                <ScalarProperty Name="image" ColumnName="image" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -487,7 +492,7 @@
             <EntityTypeMapping TypeName="kursachBDModel.Genres">
               <MappingFragment StoreEntitySet="Genres">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="genreName" ColumnName="genreName" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -495,7 +500,7 @@
             <EntityTypeMapping TypeName="kursachBDModel.PublishingHouse">
               <MappingFragment StoreEntitySet="PublishingHouse">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="publichingName" ColumnName="publichingName" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -503,7 +508,7 @@
             <EntityTypeMapping TypeName="kursachBDModel.Role">
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="roleName" ColumnName="roleName" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -511,7 +516,7 @@
             <EntityTypeMapping TypeName="kursachBDModel.State">
               <MappingFragment StoreEntitySet="State">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="stateName" ColumnName="stateName" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -547,6 +552,7 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="bookID" ColumnName="bookID" />
                 <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="time" ColumnName="time" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

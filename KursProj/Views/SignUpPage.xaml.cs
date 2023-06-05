@@ -67,18 +67,18 @@ namespace KursProj.Views
                     user.login = TBLogin.Text;
                     user.password = PBPass.Password;
                     user.image = img;
-                    user.roleID = 2; //default user role //not admin
+                    user.roleID = 2; //default user & not admin
                 };
                 AppData.db.User.Add(user);
                 AppData.db.SaveChanges();
                 MessageBox.Show("Пользователь успешно добавлен!");
                 NavigationService.GoBack();
-        }
+            }
             catch 
             {
                 MessageBox.Show("Ошибка в добавлении данных!");
             }
-}
+        }
 
         private void PBPass_Changed(object sender, RoutedEventArgs e)
         {

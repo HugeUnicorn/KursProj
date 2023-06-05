@@ -17,6 +17,7 @@ namespace KursProj.Model
         public int id { get; set; }
         public int bookID { get; set; }
         public int userID { get; set; }
+        public System.DateTime time { get; set; }
     
         public virtual Books Books { get; set; }
         public virtual User User { get; set; }

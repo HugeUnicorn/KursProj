@@ -1,4 +1,5 @@
 ﻿using KursProj.Model;
+using KursProj.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,17 +24,19 @@ namespace KursProj.Views
     public partial class AddEditAuthorsPage : Page
     {
         public Authors currentAuthor;
+        //пустая страница для добавления
         public AddEditAuthorsPage()
         {
             InitializeComponent();
-            Title = "Добавление автора";
+            this.WindowTitle = "Добавление автора";
         }
+        //редактирование записи
         public AddEditAuthorsPage(Authors author)
         {
-            currentAuthor = author;
+            currentAuthor = author; 
             InitializeComponent();
-            Title = "Редактирование автора";
 
+            this.WindowTitle = "Редактирование автора";
 
             TBAuthorSurname.Text = currentAuthor.surname;
             TBAuthorName.Text = currentAuthor.name;
@@ -59,8 +62,9 @@ namespace KursProj.Views
                 currentAuthor.name = TBAuthorName.Text;
                 currentAuthor.surname = TBAuthorSurname.Text;
                 currentAuthor.patronymic = TBAuthorPatronymic.Text;
-                AppData.db.SaveChanges();
+                AppData.db.SaveChanges();                
                 MessageBox.Show("Автор успешно обновлен!");
+                currentAuthor = null;
             }
         }
     }

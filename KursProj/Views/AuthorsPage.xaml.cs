@@ -42,7 +42,7 @@ namespace KursProj.Views
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
             var currentAuthor = (sender as Button).DataContext as Authors;
-            if (MessageBox.Show("Вы уверены что хотите удалить этоо автора?", "Внимание", 
+            if (MessageBox.Show("Вы уверены что хотите удалить этого автора?", "Внимание", 
                 MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
                 AppData.db.Authors.Remove(currentAuthor);

@@ -23,8 +23,8 @@
         <StackPanel Grid.Row="1"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
-                    Width="750"
-                    >
+                    Width="750">
+
             <Grid VerticalAlignment="Center">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -54,12 +54,9 @@
                 <TextBlock Text="Почта"   Grid.Column="0" Grid.Row="3"/>
                 <TextBox
                     Name="TBemail" 
-                         
-                         Grid.Column="1" 
-                         Grid.Row="3"
-                         
-                         />
-                
+                    Grid.Column="1" 
+                    Grid.Row="3"/>
+
                 <TextBlock Text="Логин"  Grid.Column="0" Grid.Row="4"/>
                 <TextBox Name="TBLogin"  TextChanged="TBLogin_TextChanged" Grid.Column="1" Grid.Row="4"/>
                 <TextBlock Grid.ColumnSpan="2" Grid.Row="5"
@@ -107,51 +104,6 @@
                     <Button Name="BtnSelectImage" Content="Добавить фото" Click="BtnSelectImage_Click"/>
                 </StackPanel>
             </Grid>
-            
-            <!--<StackPanel Orientation="Horizontal">
-                <TextBlock Text="Имя"    />
-                <TextBox Name="TBName"   Width="200"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Фамилия"  />
-                <TextBox Name="TBSurname"  />
-            </StackPanel>
-            
-            
-            <TextBlock Text="Отчество"  />
-            <TextBox Name="TBPatronymic"  />
-            <TextBlock Text="Год рождения"  />
-            <TextBox Name="TByob"  />
-            <TextBlock Text="Логин"  />
-            <TextBox Name="TBLogin"   TextChanged="TBLogin_TextChanged"/>
-            <TextBlock   Name="TBLoginError"
-                         Visibility="Collapsed"
-                         Foreground="red"
-                         FontSize="12"
-                         Text="Пользователь с таким логином уже существует"/>
-            <TextBlock Text="Пароль"  />
-            <PasswordBox Name="PBPass" 
-                         Margin="5"
-                         PasswordChanged="PBPass_Changed"/>
-            <TextBlock Text="Введите пароль второй раз"  />
-            <PasswordBox Name="PBPassAgain" 
-                         Margin="5"
-                         PasswordChanged="PBPass_Changed"/>
-
-            <Button Name="BtnReg"
-                    IsEnabled="False"
-                    Height="20"
-                    Width="200"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Click="BtnReg_Click"
-                    Content="Зарегистрироваться"/>
-
-            <TextBlock Text="Уже есть аккаунт?"
-                       HorizontalAlignment="Center"
-                       Foreground="LightGray"
-                       FontSize="10"
-                       MouseLeftButtonUp="BtnBack_Click"/>-->
         </StackPanel>
     </Grid>
 </Page>

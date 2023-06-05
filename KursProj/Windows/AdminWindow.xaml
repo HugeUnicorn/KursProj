@@ -18,10 +18,10 @@
             <ComboBoxItem Content="Авторы"/>
             <ComboBoxItem Content="Книги"/>
             <ComboBoxItem Content="Жанры"/>
+            <ComboBoxItem Content="Роли"/>
             <ComboBoxItem Content="Издательства"/>
             <ComboBoxItem Content="Состояние книги"/>
             <ComboBoxItem Content="Пользователи"/>
-            <ComboBoxItem Content="Роли"/>
             <ComboBoxItem Content="История передачи книг"/>
         </ComboBox>
         <Button Grid.Row="1" HorizontalAlignment="Right" Margin=" 0 0 40 0" Content="Добавить" Name="BtnAdd" Click="DtnAdd_Click"/>

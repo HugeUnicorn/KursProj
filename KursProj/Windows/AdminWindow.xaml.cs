@@ -23,7 +23,7 @@ namespace KursProj.Windows
     /// </summary>
     public partial class AdminWindow : Window
     {
-        public int currentTable = 0;
+        public TableName currentTable;
         public AdminWindow()
         {
             InitializeComponent();    
@@ -32,26 +32,55 @@ namespace KursProj.Windows
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            currentTable = SelectTable.SelectedIndex;
-            switch (SelectTable.SelectedIndex)
+            currentTable = (TableName)SelectTable.SelectedIndex;
+            switch (currentTable)
             {
-                case 0:
+                case TableName.Genres:
+                    MainFrame.Navigate(new Views.ShortPage(TableName.Genres));
+                    break;
+                case TableName.Role:
+                    MainFrame.Navigate(new Views.ShortPage(TableName.Role));
+                    break;
+                case TableName.PublishingHouse:
+                    MainFrame.Navigate(new Views.ShortPage(TableName.PublishingHouse));
+                    break;
+                case TableName.State:
+                    MainFrame.Navigate(new Views.ShortPage(TableName.State));
+                    break;
+                case TableName.Authors:
                     MainFrame.Navigate(new Views.AuthorsPage());
                     break;
-                    case 1:
-                    MainFrame.Navigate(new Views.SignInPage());
+                case TableName.Users:
+                    break;
+                case TableName.Books:
+                    break;
+                case TableName.UserBookPair:
                     break;
                 default:
                     break;
-            } 
+            }            
         }
 
         private void DtnAdd_Click(object sender, RoutedEventArgs e)
         {
             switch (currentTable)
             {
-                case 0:
+                case TableName.Authors:
                     MainFrame.Navigate(new Views.AddEditAuthorsPage());
+                    break;
+                case TableName.Books:
+                    break;
+                case TableName.Genres:
+                    break;
+                case TableName.Role:
+                    break;
+                case TableName.PublishingHouse:
+                    break;
+                case TableName.State:
+                    break;
+                case TableName.Users:
+                    break;
+                case TableName.UserBookPair:
                     break;
                 default:
                     break;

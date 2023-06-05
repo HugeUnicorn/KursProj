@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="989118a7476d48e8bef9d0f1288a7207" Name="Diagram1">
-        <EntityTypeShape EntityType="kursachBDModel.Authors" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+      <Diagram DiagramId="4213655568bc485498b245b3f2eefdc0" Name="Diagram1">
+        <EntityTypeShape EntityType="kursachBDModel.Authors" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="kursachBDModel.Books" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="kursachBDModel.Genres" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="kursachBDModel.PublishingHouse" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="kursachBDModel.Genres" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="kursachBDModel.PublishingHouse" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="kursachBDModel.Role" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="kursachBDModel.State" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kursachBDModel.State" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="kursachBDModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="kursachBDModel.User" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kursachBDModel.User" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
         <EntityTypeShape EntityType="kursachBDModel.UserBookPair" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
         <AssociationConnector Association="kursachBDModel.FK_Books_Authors" ManuallyRouted="false" />
         <AssociationConnector Association="kursachBDModel.FK_Books_Genres" ManuallyRouted="false" />

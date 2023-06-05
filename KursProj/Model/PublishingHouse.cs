@@ -21,7 +21,7 @@ namespace KursProj.Model
         }
     
         public int id { get; set; }
-        public string publichingName { get; set; }
+        public string name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Books> Books { get; set; }

@@ -23,6 +23,7 @@ namespace KursProj.Model
         public int genreID { get; set; }
         public int publishID { get; set; }
         public int stateID { get; set; }
+        public string image { get; set; }
     
         public virtual Authors Authors { get; set; }
         public virtual Genres Genres { get; set; }
