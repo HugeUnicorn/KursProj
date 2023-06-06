@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KursProj.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -22,9 +23,33 @@ namespace KursProj.Windows
     {
         public UserWindow()
         {
+            
             InitializeComponent();
 
-            UserFrame.Navigate(new Views.DataPage());
+            //UserFrame.Navigate(new Views.DataPage());
+
+            try
+            {
+                BookList.ItemsSource = AppData.db.Books.Take(4).ToList();
+               
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.Message, "Что-то пошло не так!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+
+            
+        }
+
+        private void GoBackImage_Click(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
+
+        private void BtnInfo_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

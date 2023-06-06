@@ -71,12 +71,16 @@ namespace KursProj.Windows
                 case TableName.Books:
                     break;
                 case TableName.Genres:
+                    MainFrame.Navigate(new Views.AddEditShortPage(TableName.Genres));
                     break;
                 case TableName.Role:
+                    MainFrame.Navigate(new Views.AddEditShortPage(TableName.Role));
                     break;
                 case TableName.PublishingHouse:
+                    MainFrame.Navigate(new Views.AddEditShortPage(TableName.PublishingHouse));
                     break;
                 case TableName.State:
+                    MainFrame.Navigate(new Views.AddEditShortPage(TableName.State));
                     break;
                 case TableName.Users:
                     break;

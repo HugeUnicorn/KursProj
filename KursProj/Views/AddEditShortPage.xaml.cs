@@ -25,11 +25,11 @@ namespace KursProj.Views
     {
         public TableName currentTable;       
         public string itemName;
-        private Role role;
-        private Genres genre;
-        private PublishingHouse publishingHouse;
-        private State state;
-        bool addOrEditFlag = false; //добавление - true, изменение - false;
+        public Role role;
+        public Genres genre;
+        public PublishingHouse publishingHouse;
+        public State state;
+        public bool addOrEditFlag = false; //добавление - true, изменение - false;
 
         //добавление
         public AddEditShortPage(TableName tn)
@@ -38,6 +38,28 @@ namespace KursProj.Views
             this.WindowTitle = "Добавление";
             currentTable = tn;
             addOrEditFlag = true;
+
+            switch (currentTable)
+            {
+                case TableName.Genres:
+                    this.WindowTitle = "Добавление жанров";
+                    TBName.Text = "Жанр:";
+                    break;
+                case TableName.Role:
+                    this.WindowTitle = "Добавление ролей";
+                    TBName.Text = "Роль:";
+                    break;
+                case TableName.PublishingHouse:
+                    this.WindowTitle = "Добавление издательств";
+                    TBName.Text = "Издательство:";
+                    break;
+                case TableName.State:
+                    this.WindowTitle = "Добавление состояний книг";
+                    TBName.Text = "Состояние:";
+                    break;
+                default:
+                    break;
+            }
         }
         //редактирование
         public AddEditShortPage(TableName tn, Genres gn = null, Role rl = null, PublishingHouse pbl = null, State st = null)
@@ -55,18 +77,22 @@ namespace KursProj.Views
             {
                 case TableName.Genres:
                     this.WindowTitle = "Редактирование жанров";
+                    TBName.Text = "Жанр:";
                     TBShortName.Text = genre.name;
                     break;
                 case TableName.Role:
                     this.WindowTitle = "Редактирование ролей";
+                    TBName.Text = "Роль:";
                     TBShortName.Text = role.name;
                     break;
                 case TableName.PublishingHouse:
                     this.WindowTitle = "Редактирование издательств";
+                    TBName.Text = "Издательство:";
                     TBShortName.Text = publishingHouse.name;
                     break;
                 case TableName.State:
                     this.WindowTitle = "Редактирование состояний книг";
+                    TBName.Text = "Состояние:";
                     TBShortName.Text = state.name;
                     break; 
                 default:
@@ -113,7 +139,7 @@ namespace KursProj.Views
                 AppData.db.SaveChanges();
                 MessageBox.Show("Запись успешно добавлена в таблицу!");
             }
-            else 
+            else  
             {
                 switch (currentTable)
                 {
@@ -135,6 +161,7 @@ namespace KursProj.Views
                 AppData.db.SaveChanges();
                 MessageBox.Show("Запись успешно изменена");
             }
+            NavigationService.Navigate(new ShortPage(currentTable));
         }
     }
 }

@@ -11,7 +11,7 @@
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock Text="name"/>
+                <TextBlock Name="TBName" Text="name"/>
                 <TextBox x:Name="TBShortName"/>
             </StackPanel>
             <Button Margin="10" Content="Сохранить" Click="BtnSave_Click"/>

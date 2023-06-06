@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="AdminWindow" Height="450" Width="800" Background="AntiqueWhite">
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition Height="70"/>
@@ -26,19 +27,6 @@
         </ComboBox>
         <Button Grid.Row="1" HorizontalAlignment="Right" Margin=" 0 0 40 0" Content="Добавить" Name="BtnAdd" Click="DtnAdd_Click"/>
         <Frame Grid.Row="2" NavigationUIVisibility="Hidden" Name="MainFrame"/>
-        
-        <!--<ListView Grid.Row="2" Name="LVContent">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Border BorderBrush="{StaticResource ColorAccent}">
-                        <Grid HorizontalAlignment="Center">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock></TextBlock>
-                            </StackPanel>
-                        </Grid>
-                    </Border>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>-->
+
     </Grid>
 </Window>
