@@ -53,6 +53,7 @@ namespace KursProj.Windows
                 case TableName.Users:
                     break;
                 case TableName.Books:
+                    MainFrame.Navigate(new Views.BookPage());
                     break;
                 case TableName.UserBookPair:
                     break;
@@ -61,7 +62,7 @@ namespace KursProj.Windows
             }            
         }
 
-        private void DtnAdd_Click(object sender, RoutedEventArgs e)
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             switch (currentTable)
             {
@@ -69,6 +70,7 @@ namespace KursProj.Windows
                     MainFrame.Navigate(new Views.AddEditAuthorsPage());
                     break;
                 case TableName.Books:
+                    MainFrame.Navigate(new Views.AddEditBookPage());
                     break;
                 case TableName.Genres:
                     MainFrame.Navigate(new Views.AddEditShortPage(TableName.Genres));
@@ -93,8 +95,10 @@ namespace KursProj.Windows
 
         private void GoBackImage_Click(object sender, MouseEventArgs e)
         {
-            if (MainFrame.CanGoBack && MessageBox.Show("Вы уверены, что хотите вернуться?",
-                "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Exclamation) == MessageBoxResult.Yes)
+            if (MainFrame.CanGoBack 
+                //&& MessageBox.Show("Вы уверены, что хотите вернуться?",
+                //"Внимание", MessageBoxButton.YesNo, MessageBoxImage.Exclamation) == MessageBoxResult.Yes
+                )
                 MainFrame.GoBack();
         }
     }

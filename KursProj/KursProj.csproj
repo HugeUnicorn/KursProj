@@ -112,6 +112,9 @@
     <Compile Include="Views\AddEditAuthorsPage.xaml.cs">
       <DependentUpon>AddEditAuthorsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddEditBookPage.xaml.cs">
+      <DependentUpon>AddEditBookPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddEditShortPage.xaml.cs">
       <DependentUpon>AddEditShortPage.xaml</DependentUpon>
     </Compile>
@@ -121,6 +124,9 @@
     <Compile Include="Views\AppFrame.cs" />
     <Compile Include="Views\AuthorsPage.xaml.cs">
       <DependentUpon>AuthorsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BookPage.xaml.cs">
+      <DependentUpon>BookPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShortPage.xaml.cs">
       <DependentUpon>ShortPage.xaml</DependentUpon>
@@ -159,6 +165,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AddEditBookPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AddEditShortPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -168,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AuthorsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BookPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

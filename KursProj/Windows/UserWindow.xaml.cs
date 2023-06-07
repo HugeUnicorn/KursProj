@@ -31,20 +31,12 @@ namespace KursProj.Windows
             try
             {
                 BookList.ItemsSource = AppData.db.Books.Take(4).ToList();
-               
+                var cuurentBook = BookList.SelectedItem as Books;                
             }
             catch (Exception ex)
-            {
-                
+            {                
                 MessageBox.Show(ex.Message, "Что-то пошло не так!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-            }
-
-            
-        }
-
-        private void GoBackImage_Click(object sender, MouseButtonEventArgs e)
-        {
-            
+            }          
         }
 
         private void BtnInfo_Click(object sender, RoutedEventArgs e)
