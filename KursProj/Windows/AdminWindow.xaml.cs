@@ -56,6 +56,7 @@ namespace KursProj.Windows
                     MainFrame.Navigate(new Views.BookPage());
                     break;
                 case TableName.UserBookPair:
+                    MainFrame.Navigate(new Views.HistoryPage());
                     break;
                 default:
                     break;

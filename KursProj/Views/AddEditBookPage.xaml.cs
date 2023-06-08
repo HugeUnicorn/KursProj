@@ -12,7 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Text.RegularExpressions;
+using Microsoft.Win32;
+using System.IO;
 
 namespace KursProj.Views
 {
@@ -21,6 +23,12 @@ namespace KursProj.Views
     /// </summary>
     public partial class AddEditBookPage : Page
     {
+        private byte[] _mainImageData = null;
+        public string img = null;
+        public string path = Path.Combine(Directory.GetParent(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName)).FullName, @"Images\");
+        public string selectefFileName;
+        public string extension = "";
+
         public AddEditBookPage()
         {
             InitializeComponent();
@@ -32,7 +40,18 @@ namespace KursProj.Views
 
         private void BtnImage_Click(object sender, RoutedEventArgs e)
         {
-
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Multiselect = false;
+            ofd.Filter = "Фото | *.png; *.jpg; *.jpeg";
+            if (ofd.ShowDialog() == true)
+            {
+                img = Path.GetFileName(ofd.FileName);
+                extension = Path.GetExtension(img);
+                selectefFileName = ofd.FileName;
+                _mainImageData = File.ReadAllBytes(ofd.FileName);
+                ImagePFP.Source = new ImageSourceConverter()
+                    .ConvertFrom(_mainImageData) as ImageSource;
+            }
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)

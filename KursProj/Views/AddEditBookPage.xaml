@@ -38,7 +38,7 @@
                     <TextBox Name="TBState"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock Text="Оаписание"/>
+                    <TextBlock Text="Описание"/>
                     <TextBox Name="TBDescription"/>
                 </StackPanel>
                 <Button Margin="10" Content="Сохранить" Click="BtnSave_Click"/>
