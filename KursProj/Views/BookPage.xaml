@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:KursProj.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="900"
+      d:DesignHeight="950" d:DesignWidth="1000"
       Title="BookPage" Background="AntiqueWhite">
 
     <Grid>
@@ -16,10 +16,10 @@
         </Grid.RowDefinitions>
         <!--<Frame Grid.Row="1" NavigationUIVisibility="Hidden" Name="UserFrame"/>-->
 
-        <ListView Grid.Row="1" Name="LWBooks" Width="900">
+        <ListView Grid.Row="1" Name="LWBooks" Width="1000">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" Height="95">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" Height="165">
                         <Image Height="90" 
                                Width="90"
                                Source="/Images/default_pfp.png"
@@ -46,13 +46,14 @@
                         <Border BorderBrush="{StaticResource AnotherColor}" BorderThickness="2" Margin="0,0,20,0">
                             <StackPanel>
                                 <Label Content="{Binding Genres.name}"/>
-                                <!--<Label Content="{Binding State.name}"/>-->
+                                <Label Content="{Binding State.name}"/>
                                 <Button Content="Изменить" Click="BtnChange_Click"/>
                                 <Button Content="Удалить" Click="BtnDelete_Click"/>
                             </StackPanel>
                         </Border>
                     </StackPanel>
                 </DataTemplate>
+                
             </ListView.ItemTemplate>
         </ListView>
     </Grid>

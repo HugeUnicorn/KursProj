@@ -28,14 +28,35 @@ namespace KursProj.Views
         public string path = Path.Combine(Directory.GetParent(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName)).FullName, @"Images\");
         public string selectefFileName;
         public string extension = "";
+        public Books currentBook;
 
         public AddEditBookPage()
         {
             InitializeComponent();
         }
-        public AddEditBookPage(Books currentBook)
+        public AddEditBookPage(Books cb)
         {
             InitializeComponent();
+
+            currentBook = cb;
+
+            TBBookName.Text = currentBook.name;
+            TBArticule.Text = currentBook.article;
+            TBDescription.Text = currentBook.description;
+            TBAuthor.SelectedItem = currentBook.Authors.surname;
+            TBGenre.SelectedItem = currentBook.Genres.name;
+            TBPublisher.SelectedItem = currentBook.PublishingHouse.name;
+            TBGenre.SelectedItem = currentBook.Genres.name;
+            TBState.SelectedItem = currentBook.State.name;
+
+            var authors = AppData.db.Authors.Select(r => r.surname).ToList();
+            TBAuthor.ItemsSource = authors;
+            var genres = AppData.db.Genres.Select(r => r.name).ToList();
+            TBGenre.ItemsSource = genres;
+            var publishers = AppData.db.PublishingHouse.Select(r => r.name).ToList();
+            TBPublisher.ItemsSource = publishers;
+            var states = AppData.db.State.Select(r => r.name).ToList();
+            TBState.ItemsSource = states;          
         }
 
         private void BtnImage_Click(object sender, RoutedEventArgs e)
@@ -52,11 +73,31 @@ namespace KursProj.Views
                 ImagePFP.Source = new ImageSourceConverter()
                     .ConvertFrom(_mainImageData) as ImageSource;
             }
+            if (img != null)
+            {
+                img = TBArticule.Text + extension;
+                int a = 0;
+                while (File.Exists(path + img))
+                {
+                    a++;
+                    img = TBArticule.Text + $" ({a})" + extension;
+                }
+                path += img;
+                File.Copy(selectefFileName, path);
+            }
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-
+            if (currentBook == null )
+            {
+                Books book = new Books()
+                {
+                    article = TBArticule.Text,
+                    name = TBBookName.Text,
+                    yearOfPublic = Int32.Parse(TBYoP.Text),
+                };
+            }
         }
     }
 }

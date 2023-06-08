@@ -19,23 +19,26 @@
                 </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <TextBlock Text="Артикул"/>
-                        <TextBox x:Name="TBBookArticule"/>
+                        <TextBox x:Name="TBArticule"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Text="Автор"/>
-                    <TextBox Name="TBAuthor"/>
+                        <ComboBox Name="TBAuthor" SelectedItem="0"/>
+                        
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Text="Жанр"/>
-                    <TextBox Name="TBGenre"/>
+                        <ComboBox Name="TBGenre" SelectedItem="Выберите жанр"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Text="Издатель"/>
-                    <TextBox Name="TBPublisher"/>
-                </StackPanel>
+                        <ComboBox Name="TBPublisher" SelectedItem="Выберите издательство">
+                            
+                        </ComboBox>
+                    </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Text="Состояние книги"/>
-                    <TextBox Name="TBState"/>
+                        <ComboBox SelectedItem="Выберите состояние книги" Name="TBState"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Text="Описание"/>
