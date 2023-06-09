@@ -23,11 +23,12 @@
                         <Image Height="90" 
                                Width="90"
                                Source="/Images/default_pfp.png"
-                               Margin="0 0 20 0"/>
+                               Margin="0 0 20 0"
+                               Name="BookImage"/>
                         <Border BorderBrush="{StaticResource AnotherColor}" BorderThickness="2">
                             <StackPanel>
-                                <StackPanel Orientation="Horizontal" >
-                                    <Label Foreground="{StaticResource ColorFont}" Content="{Binding Authors.surname}"/>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <Label  Foreground="{StaticResource ColorFont}" Content="{Binding Authors.surname}"/>
                                     <Label Foreground="{StaticResource ColorFont}" Content="|"/>
                                     <Label Foreground="{StaticResource ColorFont}" Content="{Binding Authors.name}"/>
                                     <Label Foreground="{StaticResource ColorFont}" Content="|"/>

@@ -28,6 +28,11 @@ namespace KursProj.Views
         public string path = Path.Combine(Directory.GetParent(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName)).FullName, @"Images\");
         public string selectefFileName;
         public string extension = "";
+
+        Regex lpCheck = new Regex(@"^\w{5,30}$");
+        Regex nameCheck = new Regex(@"^[A-ЯЁ][а-яё]+$");
+        Regex emailCheck = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+        MatchCollection matches;
         public SignUpPage()
         {
             InitializeComponent();
@@ -40,6 +45,18 @@ namespace KursProj.Views
 
         private void BtnReg_Click(object sender, RoutedEventArgs e)
         {
+            matches = nameCheck.Matches(TBName.Text);
+            if (matches.Count > 0)
+            {
+                MessageBox.Show("Некорректно введено имя");
+                return;
+            }
+            matches = emailCheck.Matches(TBemail.Text);
+            if (matches.Count == 0)
+            {
+                MessageBox.Show("Некорректно введен email");
+                return;
+            }
             if (AppData.db.User.Count(x => x.login==TBLogin.Text) > 0)
             {
                 MessageBox.Show("Пользователь с таким логином уже существует!");
@@ -87,13 +104,13 @@ namespace KursProj.Views
             MatchCollection strongMatch = strongPass.Matches(password);
             if (strongMatch.Count > 0)
             {
-                TBPassStrength.Text = "Ничо такой пароль, хороший";
+                TBPassStrength.Text = "Надежный пароль";
                 TBPassStrength.Foreground = Brushes.DarkRed;
                 TBPassStrength.Visibility = Visibility.Visible;
             }            
             else
             {
-                TBPassStrength.Text = "хз, слабый пароль какой-то";
+                TBPassStrength.Text = "слабый пароль";
                 TBPassStrength.Foreground = Brushes.Green;
                 TBPassStrength.Visibility = Visibility.Visible;
             }

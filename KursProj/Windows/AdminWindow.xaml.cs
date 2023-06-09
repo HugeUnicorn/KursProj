@@ -96,11 +96,10 @@ namespace KursProj.Windows
 
         private void GoBackImage_Click(object sender, MouseEventArgs e)
         {
-            if (MainFrame.CanGoBack 
-                //&& MessageBox.Show("Вы уверены, что хотите вернуться?",
-                //"Внимание", MessageBoxButton.YesNo, MessageBoxImage.Exclamation) == MessageBoxResult.Yes
-                )
+            if (MainFrame.CanGoBack)
                 MainFrame.GoBack();
         }
+
+
     }
 }

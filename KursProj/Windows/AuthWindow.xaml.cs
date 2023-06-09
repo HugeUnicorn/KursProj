@@ -26,5 +26,11 @@ namespace KursProj.Views
 
             AuthFrame.Navigate(new SignInPage());
         }
+
+        private void GoBackImage_Click(object sender, MouseEventArgs e)
+        {
+            if (AuthFrame.CanGoBack)
+                AuthFrame.GoBack();
+        }
     }
 }

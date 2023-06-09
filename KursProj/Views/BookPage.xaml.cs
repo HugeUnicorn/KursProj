@@ -31,6 +31,7 @@ namespace KursProj.Views
         {
             var content = AppData.db.Books.ToList();
             LWBooks.ItemsSource = content;
+            
         }
 
         private void BtnChange_Click(object sender, RoutedEventArgs e)

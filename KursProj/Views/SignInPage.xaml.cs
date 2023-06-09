@@ -58,43 +58,12 @@ namespace KursProj.Views
                         MessageBox.Show("Введите корректные логин и пароль", "Ошибка авторизации");
                     }
                 }
-
-                
-
-                //if (CurrentUser == null)
-                //{
-                //    MessageBox.Show("Такого пользователя нет!", "Ошибка авторизации");
-
-                //} else
-                //{
-                //    switch (CurrentUser.roleID)
-                //    {
-                //        case 1:MessageBox.Show("Здравствуйте, Администратор " + CurrentUser.name + "!");
-                //            break;
-                //        case 2:MessageBox.Show("Здравствуйте, гость " + CurrentUser.name + "!");
-                //            break;
-                //        default:MessageBox.Show("Ошибка");
-                //            break;
-                //    }
-
-                //    if (CurrentUser.login.Equals(TBLogin.Text) && CurrentUser.password.Equals(TBPassword.Text))
-                //    {
-                //        NavigationService.Navigate(new DataPage());
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("Введите корректные логин и пароль");
-                //    }                
-                //}
-
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ошибка " + ex.Message.ToString());
             }
-
-}
+        }
 
         private void BtnSignUp_Click(object sender, RoutedEventArgs e)
         {

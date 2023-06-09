@@ -9,13 +9,13 @@
     <Grid>
         
         <Grid.RowDefinitions>
-            <RowDefinition Height="35"/>
+            <RowDefinition Height="70"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Image x:Name="GoBackImage" Grid.Row="0" Width="25" Height="25" HorizontalAlignment="Left" Margin="40 0 0 0" Source="/Icon.ico" MouseLeftButtonUp="GoBackImage_Click"></Image>
-        <TextBlock Grid.Row="0" Text="Окно администратора"/>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
+        <Image x:Name="GoBackImage" Grid.Row="0" Width="50" Height="50" HorizontalAlignment="Left" Margin="40 0 0 0" Source="/Icon.ico" MouseLeftButtonUp="GoBackImage_Click"></Image>
+        <TextBlock Grid.Row="0" Text="Окно администратора" VerticalAlignment="Center" FontSize="24"/>
+        <StackPanel Margin=" 0 0 40 0" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
             <TextBlock TextAlignment="Center" VerticalAlignment="Center" Text="Текущая таблица"/>
             <ComboBox Name="SelectTable" SelectionChanged="ComboBox_SelectionChanged">
                 <ComboBoxItem Content="Авторы"/>

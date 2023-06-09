@@ -33,6 +33,15 @@ namespace KursProj.Views
         public AddEditBookPage()
         {
             InitializeComponent();
+
+            var authors = AppData.db.Authors.Select(r => r.surname).ToList();
+            TBAuthor.ItemsSource = authors;
+            var genres = AppData.db.Genres.Select(r => r.name).ToList();
+            TBGenre.ItemsSource = genres;
+            var publishers = AppData.db.PublishingHouse.Select(r => r.name).ToList();
+            TBPublisher.ItemsSource = publishers;
+            var states = AppData.db.State.Select(r => r.name).ToList();
+            TBState.ItemsSource = states;
         }
         public AddEditBookPage(Books cb)
         {
@@ -91,12 +100,37 @@ namespace KursProj.Views
         {
             if (currentBook == null )
             {
+                var author = AppData.db.Authors.Where(a => a.surname == TBAuthor.SelectedItem.ToString()).FirstOrDefault();
+                var genre = AppData.db.Genres.Where(a => a.name == TBGenre.SelectedItem.ToString()).FirstOrDefault();
+                var publisher = AppData.db.PublishingHouse.Where(a => a.name == TBPublisher.SelectedItem.ToString()).FirstOrDefault();
+                var state = AppData.db.State.Where(a => a.name == TBState.SelectedItem.ToString()).FirstOrDefault();
+
                 Books book = new Books()
                 {
                     article = TBArticule.Text,
                     name = TBBookName.Text,
                     yearOfPublic = Int32.Parse(TBYoP.Text),
+                    description = TBDescription.Text,
+                    authorID = author.id,
+                    genreID = genre.id,
+                    publishID = publisher.id,
+                    stateID = state.id,
+                    image = img
                 };
+                AppData.db.Books.Add(book);
+                AppData.db.SaveChanges();
+                MessageBox.Show("Книга успешно добавлена!");
+                NavigationService.GoBack();
+            }
+            else 
+            {
+                currentBook.name = TBBookName.Text;
+                currentBook.description = TBDescription.Text;
+                currentBook.authorID = TBAuthor.SelectedItem.ToString().FirstOrDefault();
+                currentBook.publishID = TBPublisher.SelectedItem.ToString().FirstOrDefault();
+                AppData.db.SaveChanges();
+                MessageBox.Show("Автор успешно обновлен!");
+                currentBook = null;
             }
         }
     }

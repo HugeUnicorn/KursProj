@@ -17,9 +17,14 @@
                     <TextBlock Text="Название"/>
                     <TextBox x:Name="TBBookName"/>
                 </StackPanel>
+                    
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <TextBlock Text="Артикул"/>
                         <TextBox x:Name="TBArticule"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Text="Год выпуска"/>
+                        <TextBox x:Name="TBYoP"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Text="Автор"/>
@@ -36,7 +41,9 @@
                             
                         </ComboBox>
                     </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    
                     <TextBlock Text="Состояние книги"/>
                         <ComboBox SelectedItem="Выберите состояние книги" Name="TBState"/>
                 </StackPanel>
@@ -46,8 +53,8 @@
                 </StackPanel>
                 <Button Margin="10" Content="Сохранить" Click="BtnSave_Click"/>
             </StackPanel>
-            <StackPanel Orientation="Vertical">
-                <Border Margin="5" Width="225" Height="225" BorderBrush="{StaticResource ColorAccent}">
+            <StackPanel Orientation="Vertical" >
+                <Border Margin="5" Width="250" Height="280" BorderBrush="{StaticResource ColorAccent}">
                     <Image Name="ImagePFP" Source="/Images/default_pfp.png"/>
                 </Border>
                     <Button Content="Доабвить" Click="BtnImage_Click"/>
