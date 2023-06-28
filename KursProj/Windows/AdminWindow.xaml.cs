@@ -87,8 +87,10 @@ namespace KursProj.Windows
                     MainFrame.Navigate(new Views.AddEditShortPage(TableName.State));
                     break;
                 case TableName.Users:
+                    MainFrame.Navigate(new Views.AddEditUserPage());
                     break;
                 case TableName.UserBookPair:
+                    
                     break;
                 default:
                     break;

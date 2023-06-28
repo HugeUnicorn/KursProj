@@ -1,4 +1,5 @@
 ﻿using KursProj.Model;
+using KursProj.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace KursProj.Windows
@@ -30,18 +32,12 @@ namespace KursProj.Windows
 
             try
             {
-                BookList.ItemsSource = AppData.db.Books.Take(4).ToList();
-                var cuurentBook = BookList.SelectedItem as Books;                
+                UserFrame.Navigate(new DataPage());
             }
             catch (Exception ex)
             {                
                 MessageBox.Show(ex.Message, "Что-то пошло не так!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }          
-        }
-
-        private void BtnInfo_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
