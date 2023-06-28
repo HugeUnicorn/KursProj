@@ -45,6 +45,11 @@ namespace KursProj.Views
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            if (String.IsNullOrEmpty(TBAuthorName.Text)  || String.IsNullOrEmpty(TBAuthorSurname.Text))
+            {
+                MessageBox.Show("Заполните поля!");
+                return;
+            }
             if (currentAuthor == null)
             {
                 Authors author = new Authors()

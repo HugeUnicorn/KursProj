@@ -51,6 +51,7 @@ namespace KursProj.Windows
                     MainFrame.Navigate(new Views.AuthorsPage());
                     break;
                 case TableName.Users:
+                    MainFrame.Navigate(new Views.UsersPage());
                     break;
                 case TableName.Books:
                     MainFrame.Navigate(new Views.BookPage());
@@ -99,7 +100,5 @@ namespace KursProj.Windows
             if (MainFrame.CanGoBack)
                 MainFrame.GoBack();
         }
-
-
     }
 }

@@ -98,12 +98,13 @@ namespace KursProj.Views
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            var author = AppData.db.Authors.Where(a => a.surname == TBAuthor.SelectedItem.ToString()).FirstOrDefault();
+            var genre = AppData.db.Genres.Where(a => a.name == TBGenre.SelectedItem.ToString()).FirstOrDefault();
+            var publisher = AppData.db.PublishingHouse.Where(a => a.name == TBPublisher.SelectedItem.ToString()).FirstOrDefault();
+            var state = AppData.db.State.Where(a => a.name == TBState.SelectedItem.ToString()).FirstOrDefault();
             if (currentBook == null )
             {
-                var author = AppData.db.Authors.Where(a => a.surname == TBAuthor.SelectedItem.ToString()).FirstOrDefault();
-                var genre = AppData.db.Genres.Where(a => a.name == TBGenre.SelectedItem.ToString()).FirstOrDefault();
-                var publisher = AppData.db.PublishingHouse.Where(a => a.name == TBPublisher.SelectedItem.ToString()).FirstOrDefault();
-                var state = AppData.db.State.Where(a => a.name == TBState.SelectedItem.ToString()).FirstOrDefault();
+                
 
                 Books book = new Books()
                 {
@@ -124,14 +125,19 @@ namespace KursProj.Views
             }
             else 
             {
+                currentBook.image = img;
+                currentBook.article = TBArticule.Text;
                 currentBook.name = TBBookName.Text;
                 currentBook.description = TBDescription.Text;
-                currentBook.authorID = TBAuthor.SelectedItem.ToString().FirstOrDefault();
-                currentBook.publishID = TBPublisher.SelectedItem.ToString().FirstOrDefault();
+                currentBook.authorID = author.id;
+                currentBook.publishID = publisher.id;
+                currentBook.genreID = genre.id;
+                currentBook.stateID = state.id;
                 AppData.db.SaveChanges();
                 MessageBox.Show("Автор успешно обновлен!");
                 currentBook = null;
             }
+            NavigationService.Navigate(new BookPage());
         }
     }
 }

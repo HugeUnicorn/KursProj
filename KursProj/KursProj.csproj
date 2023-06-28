@@ -118,6 +118,9 @@
     <Compile Include="Views\AddEditShortPage.xaml.cs">
       <DependentUpon>AddEditShortPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddEditUserPage.xaml.cs">
+      <DependentUpon>AddEditUserPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AdminMainPage.xaml.cs">
       <DependentUpon>AdminMainPage.xaml</DependentUpon>
     </Compile>
@@ -133,6 +136,9 @@
     </Compile>
     <Compile Include="Views\ShortPage.xaml.cs">
       <DependentUpon>ShortPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsersPage.xaml.cs">
+      <DependentUpon>UsersPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
@@ -176,6 +182,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AddEditUserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AdminMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -193,6 +203,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShortPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UsersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

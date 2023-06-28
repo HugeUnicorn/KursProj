@@ -11,7 +11,8 @@ namespace KursProj.Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.IO;
+
     public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +20,23 @@ namespace KursProj.Model
         {
             this.UserBookPair = new HashSet<UserBookPair>();
         }
-    
+
+        public string correctimage
+        {
+            get
+            {
+                string path = Path.Combine(Directory.GetParent(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName)).FullName, @"Images\");
+                if (String.IsNullOrEmpty(image) || String.IsNullOrWhiteSpace(image) || image == null)
+                {
+                    return path + "default_pfp.png";
+                }
+                else
+                {
+                    return path + image;
+                }
+            }
+        }
+
         public int id { get; set; }
         public string name { get; set; }
         public string surname { get; set; }

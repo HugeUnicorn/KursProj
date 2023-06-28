@@ -19,23 +19,25 @@
         <ListView Grid.Row="1" Name="LWBooks" Width="1000">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" Height="165">
-                        <Image Height="90" 
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" Height="95">
+                        <!--<Image Height="90" 
                                Width="90"
                                Source="/Images/default_pfp.png"
                                Margin="0 0 20 0"
-                               Name="BookImage"/>
+                               Name="BookImage"/>-->
                         <Border BorderBrush="{StaticResource AnotherColor}" BorderThickness="2">
-                            <StackPanel>
+                            <StackPanel Width="335">
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                    <Label  Foreground="{StaticResource ColorFont}" Content="{Binding Authors.surname}"/>
-                                    <Label Foreground="{StaticResource ColorFont}" Content="|"/>
-                                    <Label Foreground="{StaticResource ColorFont}" Content="{Binding Authors.name}"/>
-                                    <Label Foreground="{StaticResource ColorFont}" Content="|"/>
-                                    <Label Foreground="{StaticResource ColorFont}" Content="{Binding Authors.patronymic}"/>
+                                    <TextBlock FontSize="14" TextAlignment="Center" Style="{StaticResource BlockDescription}"  Foreground="{StaticResource ColorFont}" Text="{Binding Authors.surname}"/>
+                                    <TextBlock FontSize="14"  Foreground="{StaticResource ColorFont}" Text="|"/>
+                                    <TextBlock FontSize="14" TextAlignment="Center" Style="{StaticResource BlockDescription}" Foreground="{StaticResource ColorFont}" Text="{Binding Authors.name}"/>
+                                    <TextBlock FontSize="14"  Foreground="{StaticResource ColorFont}" Text="|"/>
+                                    <TextBlock FontSize="14" TextAlignment="Center" Style="{StaticResource BlockDescription}" Foreground="{StaticResource ColorFont}" Text="{Binding Authors.patronymic}"/>
                                 </StackPanel>
 
-                                <Label FontSize="24" Content="{Binding name}"/>
+                                <StackPanel>
+                                    <TextBlock TextAlignment="Center" TextWrapping="Wrap" FontSize="36" Text="{Binding name}"/>
+                                </StackPanel>
                             </StackPanel>
                         </Border>
                         <Border BorderBrush="{StaticResource AnotherColor}" BorderThickness="2" Margin="20 0 20 0">
@@ -46,8 +48,14 @@
 
                         <Border BorderBrush="{StaticResource AnotherColor}" BorderThickness="2" Margin="0,0,20,0">
                             <StackPanel>
-                                <Label Content="{Binding Genres.name}"/>
-                                <Label Content="{Binding State.name}"/>
+                                <TextBlock  VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Style="{StaticResource BlockDescription}" Text="{Binding Genres.name}"/>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Style="{StaticResource BlockDescription}" Text="{Binding State.name}"/>
+                                
+                            </StackPanel>
+                        </Border>
+
+                        <Border BorderBrush="{StaticResource AnotherColor}" BorderThickness="2" Margin="0,0,20,0">
+                            <StackPanel>
                                 <Button Content="Изменить" Click="BtnChange_Click"/>
                                 <Button Content="Удалить" Click="BtnDelete_Click"/>
                             </StackPanel>

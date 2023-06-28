@@ -19,13 +19,19 @@
                 <DataTemplate>
                     <Border BorderBrush="{StaticResource ColorAccent}">
                         <Grid HorizontalAlignment="Center">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding name}" TextAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" Width="800">
+                                <TextBlock Style="{StaticResource BlockDescription}" Text="{Binding name}" TextAlignment="Center"/>
+                                <TextBlock Style="{StaticResource BlockDescription}" Text="{Binding surname}" TextAlignment="Center"/>
+                                <TextBlock Style="{StaticResource BlockDescription}" Text="{Binding patronymic}" TextAlignment="Center"/>
+
+                                <!--<TextBlock Text="{Binding name}" TextAlignment="Center"/>
                                 <TextBlock Text="{Binding surname}"  TextAlignment="Center"/>
-                                <TextBlock Text="{Binding patronymic}" TextAlignment="Center" />
+                                <TextBlock Text="{Binding patronymic}" TextAlignment="Center" />-->
                                 
-                                <Button Width="150" Name="BtnEdit" HorizontalAlignment="Stretch" Click="BtnEdit_Click" Content="Редактировать"/>
-                                <Button Width="150" Name="BtnDelete" HorizontalAlignment="Stretch"  Click="BtnDelete_Click" Content="Удалить"/>
+                                    <Button Margin="50 5 5 5" Width="150" Name="BtnEdit"  Click="BtnEdit_Click" Content="Редактировать"/>
+                                    <Button Width="150" Name="BtnDelete"  Click="BtnDelete_Click" Content="Удалить"/>
+                                
+                                
                             </StackPanel>
                         </Grid>
                     </Border>

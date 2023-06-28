@@ -45,6 +45,15 @@
             <Setter Property="Foreground" Value="{StaticResource ColorFont}"/>
             
         </Style>
+        <Style TargetType="TextBlock" x:Key="BlockDescription" >
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="TextAlignment" Value="Left"/>
+        </Style>
         <Style TargetType="TextBox">
             <Setter Property="Width" Value="175"/>
             <Setter Property="Height" Value="23"/>

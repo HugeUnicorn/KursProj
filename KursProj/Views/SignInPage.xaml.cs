@@ -31,6 +31,12 @@ namespace KursProj.Views
         {
             try
             {
+                if (String.IsNullOrEmpty(TBLogin.Text) || String.IsNullOrEmpty(TBPassword.Text))
+                {
+                    MessageBox.Show("Заполните поля!");
+                    return;
+                }
+
                 var currentUser = AppData.db.User.FirstOrDefault((u) => u.login == TBLogin.Text && u.password == TBPassword.Text);
 
                 if (currentUser == null)

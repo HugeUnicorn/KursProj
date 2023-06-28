@@ -45,6 +45,7 @@ namespace KursProj.Views
 
         private void BtnReg_Click(object sender, RoutedEventArgs e)
         {
+            
             matches = nameCheck.Matches(TBName.Text);
             if (matches.Count > 0)
             {

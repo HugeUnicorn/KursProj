@@ -11,7 +11,8 @@ namespace KursProj.Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.IO;
+
     public partial class Books
     {
         public int id { get; set; }
@@ -24,7 +25,23 @@ namespace KursProj.Model
         public int publishID { get; set; }
         public int stateID { get; set; }
         public string image { get; set; }
-    
+
+        public string correctimage
+        {
+            get
+            {
+                string path = Path.Combine(Directory.GetParent(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName)).FullName, @"Images\");
+                if (String.IsNullOrEmpty(image) || String.IsNullOrWhiteSpace(image) || image == null)
+                {
+                    return path + "default_pfp.png";
+                }
+                else
+                {
+                    return path + image;
+                }
+            }
+        }
+
         public virtual Authors Authors { get; set; }
         public virtual Genres Genres { get; set; }
         public virtual PublishingHouse PublishingHouse { get; set; }
