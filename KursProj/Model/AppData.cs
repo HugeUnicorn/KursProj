@@ -21,5 +21,6 @@ namespace KursProj.Model
     {
         public static kursachBDEntities db = new kursachBDEntities();
 
+        public static int userID;
     }
 }

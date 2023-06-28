@@ -57,6 +57,7 @@ namespace KursProj.Views
                             UserWindow userWindow = new UserWindow();
                             userWindow.Show();
                         }
+                        AppData.userID = currentUser.id;
                         Window.GetWindow(this).Close();
                     }
                     else
